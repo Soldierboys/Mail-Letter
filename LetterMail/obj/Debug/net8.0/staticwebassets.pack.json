@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LetterMail.bundle.scp.css",
+      "PackagePath": "staticwebassets\\LetterMail.45iejxc8qd.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Backg.jpg",
+      "PackagePath": "staticwebassets\\Images\\Backg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Foot.png",
+      "PackagePath": "staticwebassets\\Images\\Foot.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Sign.png",
+      "PackagePath": "staticwebassets\\Images\\Sign.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\header.png",
+      "PackagePath": "staticwebassets\\Images\\header.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LetterMail.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LetterMail.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.LetterMail.props",
+      "PackagePath": "build\\LetterMail.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.LetterMail.props",
+      "PackagePath": "buildMultiTargeting\\LetterMail.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.LetterMail.props",
+      "PackagePath": "buildTransitive\\LetterMail.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

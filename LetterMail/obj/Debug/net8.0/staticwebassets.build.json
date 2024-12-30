@@ -1,0 +1,1052 @@
+{
+  "Version": 1,
+  "Hash": "k1HKPJoCnDdUVcODdLyZwo5pNkF+XGEzyGm0GMM+kW4=",
+  "Source": "LetterMail",
+  "BasePath": "_content/LetterMail",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LetterMail\\wwwroot",
+      "Source": "LetterMail",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\",
+      "BasePath": "_content/LetterMail",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\bundle\\LetterMail.styles.css",
+      "SourceId": "LetterMail",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "LetterMail#[.{fingerprint}]?.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "Fingerprint": "45iejxc8qd",
+      "Integrity": "WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\bundle\\LetterMail.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LetterMail.bundle.scp.css",
+      "SourceId": "LetterMail",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "LetterMail#[.{fingerprint}]!.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "Fingerprint": "45iejxc8qd",
+      "Integrity": "WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LetterMail.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\app.css",
+      "SourceId": "LetterMail",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "app#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "da95v2qkru",
+      "Integrity": "u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.css"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "SourceId": "LetterMail",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "bootstrap/bootstrap.min#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bpk8xqwxhs",
+      "Integrity": "z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "SourceId": "LetterMail",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8inm30yfxf",
+      "Integrity": "gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\favicon.png",
+      "SourceId": "LetterMail",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "favicon#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ifv42okdf2",
+      "Integrity": "4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Backg.jpg",
+      "SourceId": "LetterMail",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "Images/Backg#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "elah5pnvzc",
+      "Integrity": "4qhdsT+EnzVoIpeWxfc9CH7/DG5wjQXBDQV+X07y9R8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Backg.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Foot.png",
+      "SourceId": "LetterMail",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "Images/Foot#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h5cs0eqdo0",
+      "Integrity": "e/vNnm5cBs2IGBfFKJz1d/RouanLNTi8FzE04KJ42Cs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Foot.png"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\header.png",
+      "SourceId": "LetterMail",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "Images/header#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h0c7rubffe",
+      "Integrity": "byQl8W8Bg8Wm7/n9Yp2Fst+q/isHcCB6lSyRPXqfIA8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\header.png"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Sign.png",
+      "SourceId": "LetterMail",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\",
+      "BasePath": "_content/LetterMail",
+      "RelativePath": "Images/Sign#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mrr6nhsxtg",
+      "Integrity": "7tLPU238Jxqc8ZKmTY2qoIjNQJ/GW2T37A9hbU7MXJU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Sign.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "app.css",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2591"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
+        }
+      ]
+    },
+    {
+      "Route": "app.da95v2qkru.css",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2591"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "da95v2qkru"
+        },
+        {
+          "Name": "label",
+          "Value": "app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.bpk8xqwxhs.css",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162720"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bpk8xqwxhs"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap/bootstrap.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162720"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css.8inm30yfxf.map",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449111"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8inm30yfxf"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap/bootstrap.min.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449111"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ifv42okdf2.png",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ifv42okdf2"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.png",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Backg.elah5pnvzc.jpg",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Backg.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22033"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4qhdsT+EnzVoIpeWxfc9CH7/DG5wjQXBDQV+X07y9R8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "elah5pnvzc"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Backg.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4qhdsT+EnzVoIpeWxfc9CH7/DG5wjQXBDQV+X07y9R8="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Backg.jpg",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Backg.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22033"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4qhdsT+EnzVoIpeWxfc9CH7/DG5wjQXBDQV+X07y9R8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4qhdsT+EnzVoIpeWxfc9CH7/DG5wjQXBDQV+X07y9R8="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Foot.h5cs0eqdo0.png",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Foot.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "34962"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"e/vNnm5cBs2IGBfFKJz1d/RouanLNTi8FzE04KJ42Cs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h5cs0eqdo0"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Foot.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-e/vNnm5cBs2IGBfFKJz1d/RouanLNTi8FzE04KJ42Cs="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Foot.png",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Foot.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "34962"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"e/vNnm5cBs2IGBfFKJz1d/RouanLNTi8FzE04KJ42Cs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-e/vNnm5cBs2IGBfFKJz1d/RouanLNTi8FzE04KJ42Cs="
+        }
+      ]
+    },
+    {
+      "Route": "Images/header.h0c7rubffe.png",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\header.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "76447"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"byQl8W8Bg8Wm7/n9Yp2Fst+q/isHcCB6lSyRPXqfIA8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h0c7rubffe"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/header.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-byQl8W8Bg8Wm7/n9Yp2Fst+q/isHcCB6lSyRPXqfIA8="
+        }
+      ]
+    },
+    {
+      "Route": "Images/header.png",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\header.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "76447"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"byQl8W8Bg8Wm7/n9Yp2Fst+q/isHcCB6lSyRPXqfIA8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-byQl8W8Bg8Wm7/n9Yp2Fst+q/isHcCB6lSyRPXqfIA8="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Sign.mrr6nhsxtg.png",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Sign.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28123"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7tLPU238Jxqc8ZKmTY2qoIjNQJ/GW2T37A9hbU7MXJU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrr6nhsxtg"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Sign.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7tLPU238Jxqc8ZKmTY2qoIjNQJ/GW2T37A9hbU7MXJU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Sign.png",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\wwwroot\\Images\\Sign.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28123"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7tLPU238Jxqc8ZKmTY2qoIjNQJ/GW2T37A9hbU7MXJU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7tLPU238Jxqc8ZKmTY2qoIjNQJ/GW2T37A9hbU7MXJU="
+        }
+      ]
+    },
+    {
+      "Route": "LetterMail.45iejxc8qd.bundle.scp.css",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LetterMail.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "45iejxc8qd"
+        },
+        {
+          "Name": "label",
+          "Value": "LetterMail.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8="
+        }
+      ]
+    },
+    {
+      "Route": "LetterMail.45iejxc8qd.styles.css",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\bundle\\LetterMail.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "45iejxc8qd"
+        },
+        {
+          "Name": "label",
+          "Value": "LetterMail.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8="
+        }
+      ]
+    },
+    {
+      "Route": "LetterMail.bundle.scp.css",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LetterMail.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8="
+        }
+      ]
+    },
+    {
+      "Route": "LetterMail.styles.css",
+      "AssetFile": "C:\\Users\\ADMIN\\OneDrive\\Documents\\Varadhi_letter[1]\\LetterMail\\obj\\Debug\\net8.0\\scopedcss\\bundle\\LetterMail.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Dec 2024 06:52:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WCrl31KQutsPxG0GN57pB4e5pENbRTUKGLB7+Q6f3T8="
+        }
+      ]
+    }
+  ]
+}

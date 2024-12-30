@@ -1,0 +1,255 @@
+﻿@page "/salary-increment"
+@using System.ComponentModel.DataAnnotations
+@using System.IO
+@using System.Threading.Tasks
+@using iText.Html2pdf 
+@inject IEmailService EmailService
+@inject AppDbContext DbContext
+@rendermode InteractiveServer
+
+<h3>Send Salary Increment Letter</h3>
+<EditForm Model="@salaryIncrementLetter" OnValidSubmit="SendSalaryIncrementLetter">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div style="max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="recipientEmail" style="font-weight: bold;">Recipient Email:</label>
+                <InputText id="recipientEmail" @bind-Value="salaryIncrementLetter.RecipientEmail" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => salaryIncrementLetter.RecipientEmail)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="employeeName" style="font-weight: bold;">Employee Name:</label>
+                <InputText id="employeeName" @bind-Value="salaryIncrementLetter.EmployeeName" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => salaryIncrementLetter.EmployeeName)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="position" style="font-weight: bold;">Position:</label>
+                <InputText id="position" @bind-Value="salaryIncrementLetter.Position" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => salaryIncrementLetter.Position)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="newSalary" style="font-weight: bold;">New Salary:</label>
+                <InputNumber id="newSalary" @bind-Value="salaryIncrementLetter.NewSalary" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => salaryIncrementLetter.NewSalary)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="effectiveDate" style="font-weight: bold;">Effective Date:</label>
+                <InputDate id="effectiveDate" @bind-Value="salaryIncrementLetter.EffectiveDate" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => salaryIncrementLetter.EffectiveDate)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <button type="submit" style="padding: 10px 20px; border: none; border-radius: 5px; background-color: #007bff; color: white; font-weight: bold; cursor: pointer;">
+                Send Salary Increment Letter
+            </button>
+
+            @if (isLetterSent)
+            {
+                <div style="margin-top: 20px; padding: 10px; background-color: #dff0d8; color: #3c763d; border-radius: 5px;">
+                    Salary increment letter has been sent successfully!
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div style="margin-top: 20px; padding: 10px; background-color: #f2dede; color: #a94442; border-radius: 5px;">
+                    @errorMessage
+                </div>
+            }
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private SalaryIncrementLetterModel salaryIncrementLetter = new SalaryIncrementLetterModel();
+    private bool isLetterSent = false;
+    private string errorMessage = string.Empty;
+
+    private async Task SendSalaryIncrementLetter()
+    {
+        if (string.IsNullOrWhiteSpace(salaryIncrementLetter.RecipientEmail))
+        {
+            errorMessage = "Recipient email address cannot be null or empty.";
+            return;
+        }
+
+        isLetterSent = false;
+        errorMessage = string.Empty;
+
+        var toEmail = salaryIncrementLetter.RecipientEmail;
+        var subject = "Salary Increment Letter";
+
+        var htmlContent = $@"
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Salary Increment Letter</title>
+    <style>
+        body {{
+            font-family: Times New Roman, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: black;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }}
+        .container {{
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            flex-grow: 1;
+            position: relative;
+        }}
+        .header {{
+            width: 100%;
+            text-align: center;
+            padding: 5px; /* Reduced padding */
+        }}
+        .header img {{
+            max-width: 100%;
+            height: auto;
+        }}
+        .content {{
+            margin-top: 20px; /* Reduced margin */
+            padding: 20px;
+            background-color: rgba(255,255,255,0.8);
+            background-image: url('https://i.postimg.cc/Gm8t50cB/Backg.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-blend-mode: lighten;
+            color: black;
+        }}
+        .content p {{
+            margin: 0;
+            padding: 0;
+            line-height: 1.4; /* Reduced line-height */
+            text-align: justify;
+        }}
+        .content p + p {{
+            margin-top: 5px; /* Reduced margin */
+        }}
+        .content h3 {{
+            text-align: center;
+            color: black;
+            margin-bottom: 10px; /* Reduced bottom margin */
+        }}
+        .signature-container {{
+            margin-top: 40px; /* Reduced margin-top */
+            text-align: left;
+            color: black;
+        }}
+        .signature-content {{
+            display: inline-block;
+            color: black;
+        }}
+        .signature-content img {{
+            display: block;
+            margin: 0;
+            max-width: 220px; /* Reduced size */
+        }}
+        .bold {{
+            font-weight: bold;
+            color: black;
+        }}
+        .footer {{
+            margin-top: 200px; /* Reduced margin-top */
+            text-align: center;
+            bottom:0;
+        }}
+        .footer img {{
+            max-width: 100%;
+            height: auto;
+        }}
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <div class='header'>
+            <a href='https://vaaradhiitservices.com/' target='_blank'>
+                <img src='https://i.postimg.cc/7hkSxHZQ/header.png' border='0' alt='company-logo' />
+            </a>
+        </div>
+        <div class='content'>
+            <h3>SALARY INCREMENT LETTER</h3>
+            <p>{salaryIncrementLetter.EffectiveDate:dd-MM-yyyy}</p>
+            <p>Dear <span class='bold'>{salaryIncrementLetter.EmployeeName},</span></p>
+            <p>Congratulations!</p>
+            <p>It gives us immense pleasure to recognize your hard work and achievements while serving with <strong>Vaaradhi Web & IT Services Pvt. Ltd.</strong> We have made an attempt to benchmark <strong>Vaaradhi Web & IT Services Pvt. Ltd.</strong>'s salary package with the best in the industry. Accordingly, your annual salary has been revised to <strong>Rs.{salaryIncrementLetter.NewSalary:N2}/-</strong> and you are designated as <strong>{salaryIncrementLetter.Position}</strong>, effective from <strong>{salaryIncrementLetter.EffectiveDate:MMMM yyyy}</strong>.</p>
+            <p>All other terms & conditions of your employment remain unchanged. We expect that you will continue to put in your best efforts towards the performance of your duties in future as well.</p>
+            <p>Wishing you a promising career with <strong>Vaaradhi Web & IT Services Pvt. Ltd.</strong></p>
+            <div class='signature-container'>
+                <p>With Regards,</p>
+                <p>For Vaaradhi Web & IT Services Pvt. Ltd.</p>
+                <div class='signature-content'>
+                    <a href='https://vaaradhiitservices.com/' target='_blank'>
+                        <img src='https://i.postimg.cc/rp4dzB36/Sign.png' border='0' alt='signature-1'/>
+                    </a>
+                    <p>Authorized Signatory</p>
+                </div>
+            </div>
+        </div>
+        <div class='footer'>
+            <img src='https://i.postimg.cc/J4hGjDv5/Foot.png' alt='footer'/>
+        </div>
+    </div>
+</body>
+</html>";
+
+        try
+        {
+
+            var pdfContent = await GeneratePdfAsync(htmlContent);
+            await EmailService.SendEmailWithAttachmentAsync(
+                toEmail,
+                subject,
+                htmlContent,
+                pdfContent,
+                "salary_increment.pdf"
+            );
+            isLetterSent = true;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error sending email: {ex.Message}";
+        }
+    }
+
+    private async Task<byte[]> GeneratePdfAsync(string htmlContent)
+    {
+        using (var memoryStream = new MemoryStream())
+        {
+            HtmlConverter.ConvertToPdf(htmlContent, memoryStream);
+            return memoryStream.ToArray();
+        }
+    }
+
+    public class SalaryIncrementLetterModel
+    {
+        [Required(ErrorMessage = "Recipient email address is required.")]
+        [EmailAddress(ErrorMessage = "Invalid email address.")]
+        public string RecipientEmail { get; set; }
+
+        [Required(ErrorMessage = "Employee name is required.")]
+        public string EmployeeName { get; set; }
+
+        [Required(ErrorMessage = "Position is required.")]
+        public string Position { get; set; }
+
+        [Required(ErrorMessage = "New salary is required.")]
+        public decimal NewSalary { get; set; }
+
+        [Required(ErrorMessage = "Effective date is required.")]
+        public DateTime EffectiveDate { get; set; }
+    }
+}
+

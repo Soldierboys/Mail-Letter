@@ -1,0 +1,198 @@
+﻿@page "/relieving-letter"
+@using System.ComponentModel.DataAnnotations
+@using iText.Html2pdf
+@using iText.Kernel.Pdf
+@using iText.Layout
+@using iText.Layout.Element
+@using iText.Kernel.Geom
+@inject IEmailService EmailService
+@rendermode InteractiveServer
+
+<h3>Send Relieving Letter</h3>
+
+<EditForm Model="@relievingLetterModel" OnValidSubmit="SendRelievingLetter" class="form-container">
+    <DataAnnotationsValidator />
+    <ValidationSummary class="validation-summary" />
+
+    <div class="form-group">
+        <label for="recipientEmail">Recipient Email:</label>
+        <InputText id="recipientEmail" @bind-Value="relievingLetterModel.RecipientEmail" class="form-control" />
+        <ValidationMessage For="@(() => relievingLetterModel.RecipientEmail)" class="validation-message" />
+    </div>
+
+    <div class="form-group">
+        <label for="employeeName">Employee Name:</label>
+        <InputText id="employeeName" @bind-Value="relievingLetterModel.EmployeeName" class="form-control" />
+        <ValidationMessage For="@(() => relievingLetterModel.EmployeeName)" class="validation-message" />
+    </div>
+
+    <div class="form-group">
+        <label for="designation">Designation:</label>
+        <InputText id="designation" @bind-Value="relievingLetterModel.Designation" class="form-control" />
+        <ValidationMessage For="@(() => relievingLetterModel.Designation)" class="validation-message" />
+    </div>
+
+    <div class="form-group">
+        <label for="resignationDate">Resignation Date:</label>
+        <InputDate id="resignationDate" @bind-Value="relievingLetterModel.ResignationDate" class="form-control" />
+        <ValidationMessage For="@(() => relievingLetterModel.ResignationDate)" class="validation-message" />
+    </div>
+
+    <div class="form-group">
+        <label for="relievingDate">Relieving Date:</label>
+        <InputDate id="relievingDate" @bind-Value="relievingLetterModel.RelievingDate" class="form-control" />
+        <ValidationMessage For="@(() => relievingLetterModel.RelievingDate)" class="validation-message" />
+    </div>
+
+    <div class="form-group">
+        <label for="issuanceDate">Issuance Date:</label>
+        <InputDate id="issuanceDate" @bind-Value="relievingLetterModel.IssuanceDate" class="form-control" />
+        <ValidationMessage For="@(() => relievingLetterModel.IssuanceDate)" class="validation-message" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Relieving Letter</button>
+
+    @if (isSuccess)
+    {
+        <div class="alert alert-success mt-2">
+            Relieving letter sent successfully!
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger mt-2">
+            @errorMessage
+        </div>
+    }
+</EditForm>
+
+@code {
+    private RelievingLetterModel relievingLetterModel = new RelievingLetterModel();
+    private bool isSuccess;
+    private string errorMessage;
+
+    private async Task SendRelievingLetter()
+    {
+        isSuccess = false;
+        errorMessage = string.Empty;
+
+        if (string.IsNullOrEmpty(relievingLetterModel.RecipientEmail))
+        {
+            errorMessage = "Recipient email address is not valid.";
+            return;
+        }
+
+        var toEmail = relievingLetterModel.RecipientEmail;
+        var subject = "Relieving Letter";
+        var htmlContent = $@"
+        <!DOCTYPE html>
+        <html lang='en'>
+        <head>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <title>Relieving Letter</title>
+            <style>
+                body {{ font-family: Times New Roman, sans-serif; margin: 25px; color: black; }}
+                .container {{ max-width: 800px; margin: auto; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); color: black; }}
+                .header {{ display: flex; align-items: flex-start; padding-left: -50px; }}
+                .header img {{ max-width: 750px; }}
+                .content {{ margin-top: 30px; color: black; padding: 0px; background-color: rgba(255,255,255,0.8); background-image: url('https://i.postimg.cc/Gm8t50cB/Backg.jpg'); background-size: 80%; background-repeat: no-repeat; background-position: center; background-blend-mode: lighten; text-align: left; }}
+                .content p {{ margin: 10px 0; text-align: justify; font-size: 16px; line-height: 1.6; }}
+                .content h3 {{ text-align: center; color: black; margin-bottom: 20px; }}
+                .signature-section {{ margin-top: 40px; text-align: left; color: black; }}
+                .bold {{ font-weight: bold; color: black; }}
+                .left-align {{ text-align: left; color: black; }}
+                .right-align {{ text-align: right; color: black; }}
+                .signature-content img {{ max-width: 200px; }}
+                .footer {{ margin-top: 120px; text-align: center; }}
+                .footer img {{ max-width: 100%; height: auto; margin-top: 20px; }}
+            </style>
+        </head>
+        <body>
+            <div class='container'>
+                <div class='header'>
+                    <a href='https://vaaradhiitservices.com/' target='_blank'>
+                        <img src='https://i.postimg.cc/7hkSxHZQ/header.png' border='0' alt='company-logo' />
+                    </a>
+                </div>
+                <div class='content'>
+                    <h3>RELIEVING LETTER</h3>
+                    <p>Date: {relievingLetterModel.IssuanceDate:dd-MM-yyyy}</p>
+                    <p>To,</p>
+                    <p>{relievingLetterModel.EmployeeName},</p>
+                    <p>Designation: {relievingLetterModel.Designation},</p>
+                    <p>Employee ID: MTLHD21020,</p>
+                    <p>Location: Hyderabad, Telangana.</p>
+                    <p>With reference to your resignation letter, we acknowledge that you have been relieved from all services, duties, and responsibilities of <span class='bold'>Vaaradhi Web & IT Services Pvt. Ltd..</span>, with effect from the closing hours of {relievingLetterModel.RelievingDate:dd MMMM, yyyy}.</p>
+                    <p>We wish you all success in your future endeavors.</p>
+                </div>
+                <div class='left-align'>
+                    <p>With Regards,</p>
+                    <p>Metrolabs Services Pvt. Ltd.</p>
+                    <div class='signature-content'>
+                        <a href='https://vaaradhiitservices.com/' target='_blank'>
+                            <img src='https://i.postimg.cc/rp4dzB36/Sign.png' border='0' alt='signature-1'/>
+                        </a>
+                        <p>Authorized Signatory</p>
+                    </div>
+                </div>
+                <div class='footer'>
+                    <img src='https://i.postimg.cc/J4hGjDv5/Foot.png' alt='footer' />
+                </div>
+            </div>
+        </body>
+        </html>";
+
+        try
+        {
+            var pdfContent = await GeneratePdfAsync(htmlContent);
+            await EmailService.SendEmailWithAttachmentAsync(
+                toEmail,
+                subject,
+                htmlContent,
+                pdfContent,
+                "relieving_letter.pdf"
+            );
+
+            isSuccess = true;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error sending email: {ex.Message}";
+        }
+    }
+
+    private async Task<byte[]> GeneratePdfAsync(string htmlContent)
+    {
+        using (var memoryStream = new MemoryStream())
+        {
+            HtmlConverter.ConvertToPdf(htmlContent, memoryStream, new ConverterProperties().SetBaseUri("https://vaaradhiitservices.com/"));
+            return memoryStream.ToArray();
+        }
+    }
+
+    public class RelievingLetterModel
+    {
+        [Required]
+        [EmailAddress]
+        public string RecipientEmail { get; set; } = string.Empty;
+
+        [Required]
+        public string EmployeeName { get; set; } = string.Empty;
+
+        [Required]
+        public string Designation { get; set; } = string.Empty;
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime ResignationDate { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime RelievingDate { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime IssuanceDate { get; set; } = DateTime.Now;
+    }
+}

@@ -1,0 +1,392 @@
+﻿@page "/appointment-letter"
+@using System.ComponentModel.DataAnnotations
+@using System.Globalization
+@inject IEmailService EmailService
+@inject PdfService PdfService
+@rendermode InteractiveServer
+
+<h3>Send Appointment Letter</h3>
+
+<EditForm Model="@appointmentLetterModel" OnValidSubmit="SendAppointmentLetter">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div style="max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="recipientEmail" style="font-weight: bold;">Recipient Email:</label>
+                <InputText id="recipientEmail" @bind-Value="appointmentLetterModel.RecipientEmail" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => appointmentLetterModel.RecipientEmail)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="employeeName" style="font-weight: bold;">Employee Name:</label>
+                <InputText id="employeeName" @bind-Value="appointmentLetterModel.EmployeeName" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => appointmentLetterModel.EmployeeName)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="position" style="font-weight: bold;">Position:</label>
+                <InputText id="position" @bind-Value="appointmentLetterModel.Position" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => appointmentLetterModel.Position)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="joiningDate" style="font-weight: bold;">Joining Date:</label>
+                <InputDate id="joiningDate" @bind-Value="appointmentLetterModel.JoiningDate" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => appointmentLetterModel.JoiningDate)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="monthlyCTC" style="font-weight: bold;">Monthly CTC:</label>
+                <InputText id="monthlyCTC" @bind-Value="appointmentLetterModel.MonthlyCTC" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => appointmentLetterModel.MonthlyCTC)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="annualCTC" style="font-weight: bold;">Annual CTC:</label>
+                <InputText id="annualCTC" @bind-Value="appointmentLetterModel.AnnualCTC" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;" />
+                <ValidationMessage For="@(() => appointmentLetterModel.AnnualCTC)" style="color: red; margin-top: 5px;" />
+            </div>
+
+            <button type="submit" style="padding: 10px 20px; border: none; border-radius: 5px; background-color: #007bff; color: white; font-weight: bold; cursor: pointer;">
+                Send Appointment Letter
+            </button>
+
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="alert alert-danger" style="margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #f8d7da; color: #721c24;">
+                    @errorMessage
+                </div>
+            }
+
+            @if (isLetterSent)
+            {
+                <div style="margin-top: 20px; padding: 10px; background-color: #dff0d8; color: #3c763d; border-radius: 5px;">
+                    Appointment letter has been sent successfully!
+                </div>
+            }
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private bool isLetterSent = false;
+    private string? errorMessage;
+    private AppointmentLetterModel appointmentLetterModel = new AppointmentLetterModel();
+
+    private async Task SendAppointmentLetter()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(appointmentLetterModel.RecipientEmail))
+            {
+                throw new ArgumentException("Recipient email address is not valid.", nameof(appointmentLetterModel.RecipientEmail));
+            }
+
+            var toEmail = appointmentLetterModel.RecipientEmail;
+            var subject = "Appointment Letter";
+
+            isLetterSent = true;
+            errorMessage = null;
+            string FormatCurrency(string amount)
+            {
+                if (decimal.TryParse(amount, out decimal result))
+                {
+                    return $"₹ <span style='font-family: \"Times New Roman\", Times, serif;'>{result:N2}/-</span> ({ConvertToWords(result)} Rupees Only)";
+                }
+                return $"<span style='font-family: \"Times New Roman\", Times, serif;'>{amount}</span>";
+            }
+
+            // ConvertToWords method
+            string ConvertToWords(decimal number)
+            {
+                var unitsMap = new[]
+                {
+        "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve",
+        "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"
+    };
+
+                var tensMap = new[]
+                {
+        "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+    };
+
+                string wordRepresentation;
+
+                if (number < 20)
+                {
+                    wordRepresentation = unitsMap[(int)number];
+                }
+                else if (number < 100)
+                {
+                    wordRepresentation = tensMap[(int)number / 10] + (number % 10 > 0 ? " " + unitsMap[(int)number % 10] : "");
+                }
+                else if (number < 1000)
+                {
+                    wordRepresentation = unitsMap[(int)number / 100] + " Hundred" + (number % 100 > 0 ? " and " + ConvertToWords(number % 100) : "");
+                }
+                else if (number < 100000)
+                {
+                    wordRepresentation = ConvertToWords(number / 1000) + " Thousand" + (number % 1000 > 0 ? " " + ConvertToWords(number % 1000) : "");
+                }
+                else if (number < 10000000)
+                {
+                    wordRepresentation = ConvertToWords(number / 100000) + " Lakh" + (number % 100000 > 0 ? " " + ConvertToWords(number % 100000) : "");
+                }
+                else
+                {
+                    wordRepresentation = ConvertToWords(number / 10000000) + " Crore" + (number % 10000000 > 0 ? " " + ConvertToWords(number % 10000000) : "");
+                }
+
+                // Wrap the word representation in a span with Times New Roman
+                return $"<span style='font-family: \"Times New Roman\", Times, serif;'>{wordRepresentation}</span>";
+            }
+
+
+            string FormatDate(DateTime date)
+            {
+                string daySuffix = date.Day switch
+                {
+                    1 or 21 or 31 => "st",
+                    2 or 22 => "nd",
+                    3 or 23 => "rd",
+                    _ => "th"
+                };
+
+                return $"{date.Day}{daySuffix} {date:MMMM, yyyy}";
+            }
+
+            var formattedMonthlyCTC = $"<span style='font-family: \"Times New Roman\", Times, serif;'>{FormatCurrency(appointmentLetterModel.MonthlyCTC)}</span>";
+            var formattedAnnualCTC = $"<span style='font-family: \"Times New Roman\", Times, serif;'>{FormatCurrency(appointmentLetterModel.AnnualCTC)}</span>";
+            var currentDateFormatted = FormatDate(DateTime.Now);
+            var formattedJoiningDate = FormatDate(appointmentLetterModel.JoiningDate);
+            var htmlContent = $@"
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Appointment Letter</title>
+    <style>
+        body {{
+            font-family: Times New Roman, sans-serif;
+            margin-top: 40px;
+            padding: 20px;
+            color: black;
+        }}
+        .container {{
+           max-width: 800px;
+        margin: auto;
+        padding: 60px;
+        padding-left: 40px; /* Added padding-left */
+        padding-right: 40px; /* Added padding-right */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+               }}
+        .header {{
+            text-align: left;
+           margin-bottom: 60px; /* Reduce the bottom margin to move the header up */
+            position: relative;
+            z-index: 2;
+        }}
+        .header img {{
+            max-width: 250px;
+            width: 120%;
+        }}
+
+        .content {{
+            background-color: rgba(255,255,255,0.8);
+            background-image: url('https://i.postimg.cc/Gm8t50cB/Backg.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-blend-mode: lighten;
+            position: relative;
+            z-index: 2;
+        }}
+        .content p {{
+            margin: 10px 0;
+            text-align: justify; /* Align text to both left and right margins */
+            line-height: 1.6; /* Adjust this value to set the desired line height */
+        }}
+        .content h3 {{
+            text-align: center;
+            color: black;
+
+        }}
+        .salary-table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }}
+        .salary-table th, .salary-table td {{
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }}
+        .signature-section {{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            color: black;
+        }}
+.signature-content img {{ max-width: 200px; /* Reduced width for smaller signature */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Ensure the image behaves correctly within its container */
+}}
+
+        .signature-section .left {{
+            margin-right: auto;
+        }}
+        .signature-section .right {{
+            margin-left:146px;
+        }}
+        .signature-section p {{
+            margin: 0;
+        }}
+        .bold-text {{
+            font-weight: bold;
+        }}
+        .gap {{
+            margin-bottom: 30px;
+            width: max;
+        
+        }}
+
+        /* CSS for the first page only */
+        @page:first {{margin: 0;
+        }}
+        @page:first {{@top - left {{
+            content: "";
+                margin - top: -14cm; /* Adjust top margin */
+            margin - left: -2cm; /* Adjust left margin */
+        }}
+    }}
+
+    </style>
+</head>
+<body>
+    <div class='container'>
+
+        <div class='content'>
+            <h3>APPOINTMENT LETTER</h3>
+            <p>Date: {currentDateFormatted}</p>
+            <p>Name: {appointmentLetterModel.EmployeeName}</p>
+            <p>Work location: Hyderabad, Telangana.</p>
+            <div class='gap'></div>
+            <p>Dear {appointmentLetterModel.EmployeeName},</p>
+            <div class='gap'></div>
+            <div class='gap'></div>
+            <p>With reference to your appointment with <span class='bold-text'>Vaaradhi Web & IT Services Pvt. Ltd. </span>, we have pleasure in offering you the position of {appointmentLetterModel.Position} in our organization on a fixed term contract basis. The details of the offer are as follows:</p>
+            <div class='gap'></div>
+            <p>Start date of Assignment: {formattedJoiningDate}</p>
+            <p>Monthly CTC: {formattedMonthlyCTC}</p>
+           <p>Annual CTC: {formattedAnnualCTC}</p>
+            <div class='gap'></div>
+            <p>Any statutory dues like PF, ESIC, Bonus etc., if applicable, will be Paid / Deducted as per law after probation period of one (1) year from the date of joining. All taxes will be deducted as applicable by law.</p>
+            <div class='gap'></div>
+            <div class='gap'></div>
+            <p>If you wish to accept this offer, kindly send the accepted copy of the same along with a copy of your resignation letter or relieving letter (if applicable). If in case the signed acceptance and required documents are not received by <span class='bold-text'>Vaaradhi Web & IT Services Pvt. Ltd.</span> within 48 hours of the offer date, <span class='bold-text'>Vaaradhi Web & IT Services Pvt. Ltd.</span> at their discretion reserve their right to treat this offer as withdrawn automatically without further notice.</p>
+         <br></br>
+         <br></br>
+        <br></br>
+         <br></br>
+        <h3>Annexure-I: Fixed Annual CTC</h3>
+           <table class='salary-table'>
+                            <thead>
+                                 <tr>
+            <th colspan='3'>Salary Breakup</th>
+        </tr>
+
+        <tr>
+            <th>{appointmentLetterModel.EmployeeName}</th>
+            <th>Monthly</th>
+            <th>Yearly</th>
+        </tr>
+                            </thead>
+                              <tbody>
+                            <tr><td>CTC</td><td>87,500.00</td><td>10,50,000.00</td></tr>
+                            <tr><td>BASIC</td><td>43,750.00</td><td>5,25,000.00</td></tr>
+                            <tr><td>HRA</td><td>21,875.00</td><td>2,62,500.00</td></tr>
+                            <tr><td>CONVEYANCE</td><td>10,937.50</td><td>1,31,250.00</td></tr>
+                            <tr><td>SPL ALLOWANCE</td><td>10,937.50</td><td>1,31,250.00</td></tr>
+                            <tr><td>PF</td><td>3,600.00</td><td>43,200.00</td></tr>
+                            <tr><td>PF ADMIN</td><td>150.00</td><td>1,800.00</td></tr>
+                            <tr><td>PT</td><td>200.00</td><td>2,400.00</td></tr>
+                            <tr><td>TDS</td><td>8,929.00</td><td>1,07,148.00</td></tr>
+                            <tr><td>NET TAKE HOME</td><td>83,550.00</td><td>10,02,600.00</td></tr>
+                        </tbody>
+            </table>
+
+            <p>Income Tax and Professional tax as applicable will be deducted. All taxes will be deducted as applicable by law. Your salary is strictly confidential.</p>
+        </div>
+
+       <div class='signature-section'>
+    <div class='left'>
+        <p>With Regards,</p>
+        <p>For Vaaradhi Web & IT Services Pvt.Ltd.</p>
+        <div class='signature-content'>
+            <a href='https://vaaradhiitservices.com/' target='_blank'>
+                <img src='https://i.postimg.cc/rp4dzB36/Sign.png' border='0' alt='signature-1'/>
+            </a>
+            <p>Authorized Signatory</p>
+        </div>
+                </div>
+                <div class='right'>
+                    <div class='gap'></div>
+                    <p>Accepted By</p>
+                    <div class='gap'></div>
+                    <div class='gap'></div>
+                    <div class='gap'></div>
+                    <p>Signature of employee</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>";
+            // Generate the PDF
+            var pdfContent = PdfService.GeneratePdf(htmlContent);
+
+            // Send the email with PDF attachment
+            await EmailService.SendEmailWithAttachmentAsync(
+                toEmail,
+                subject,
+                htmlContent,
+                pdfContent,
+                "appointment_letter.pdf"
+            );
+        }
+        catch (Exception ex)
+        {
+            isLetterSent = false;
+            errorMessage = $"An error occurred: {ex.Message}";
+            Console.WriteLine($"Error sending email: {ex.Message}");
+        }
+    }
+
+    public class AppointmentLetterModel
+    {
+        [Required]
+        [EmailAddress]
+        public string RecipientEmail { get; set; }
+
+        [Required]
+        public string EmployeeName { get; set; }
+
+        [Required]
+        public string Position { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime JoiningDate { get; set; }
+
+        [Required]
+        public string MonthlyCTC { get; set; }
+
+        [Required]
+        public string AnnualCTC { get; set; }
+    }
+}
